@@ -35,8 +35,9 @@ def run_inference(sovits_path, gpt_path, ref_audio, prompt_text, prompt_lang,
     os.environ["is_half"] = "True"
     os.environ["infer_ttswebui"] = "9872"
     os.environ["is_share"] = "False"
-    os.environ["cnhubert_base_path"] = "GPT_SoVITS/pretrained_models/chinese-hubert-base"
-    os.environ["bert_path"] = "GPT_SoVITS/pretrained_models/chinese-roberta-wwm-ext-large"
+    os.environ.setdefault("cnhubert_base_path", "GPT_SoVITS/pretrained_models/chinese-hubert-base")
+    os.environ.setdefault("bert_path", "GPT_SoVITS/pretrained_models/chinese-roberta-wwm-ext-large")
+
 
     print(f"[OK] SoVITS: {sovits_path}")
     print(f"[OK] GPT: {gpt_path}")
